@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-fundamentals-to-dsa"
+version = "0.1.0"
+description = "A structured collection of Python programming fundamentals, data structures, and algorithmic solutions."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Kushagra Srivastava" }
+]
+keywords = [
+    "python",
+    "fundamentals",
+    "data-structures",
+    "algorithms",
+    "interval-merging",
+    "jupyter-notebooks"
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "nbformat>=5.0.0",
+    "ipykernel>=6.0.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
