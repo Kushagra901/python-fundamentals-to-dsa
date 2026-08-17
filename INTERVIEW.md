@@ -1,6 +1,6 @@
 # Technical Interview Questions & Answers
 
-This document contains 8 technical questions and detailed answers derived exclusively from the concepts and implementations present in this repository.
+This document contains 12 technical questions and detailed answers derived exclusively from the concepts and implementations present in this repository.
 
 ---
 
@@ -64,3 +64,34 @@ This document contains 8 technical questions and detailed answers derived exclus
 - In an `if-elif-else` ladder, conditions are tested sequentially until the first truthy condition is encountered. Once that block executes, the remaining `elif` and `else` blocks are skipped entirely.
 - With multiple consecutive `if` statements, every single conditional expression is evaluated independently regardless of preceding outcomes, potentially executing multiple blocks.
 - In `py2.ipynb`, the student grade categorization utilizes `elif` to ensure that marks $\ge 90$ execute only Grade A and terminate the ladder.
+
+---
+
+### Q9: How do Python sets guarantee uniqueness and how does their membership lookup compare to lists?
+**Answer:**
+- **Hash Table Implementation**: Sets are implemented as hash tables containing only keys (no values).
+- **Lookup Complexity**: Checking element existence (`x in my_set`) operates in amortized **$O(1)$ time** because Python computes `hash(x)` and directly accesses the corresponding hash bucket.
+- **Comparison to Lists**: In contrast, list membership lookup (`x in my_list`) performs a sequential linear scan running in **$O(N)$ time**.
+
+---
+
+### Q10: Why does `{9, 9.0}` evaluate to `{9}` in Python sets, and how can they be stored distinctly?
+**Answer:**
+- In Python, integer `9` and float `9.0` evaluate to equal values (`9 == 9.0`) and have identical hash codes (`hash(9) == hash(9.0) == 9`).
+- When a set processes `9.0` after inserting `9`, it detects a hash collision and an equality match, causing Python to treat `9.0` as duplicate and ignore it.
+- **Workarounds**: To preserve both values distinctly, use string casting `{9, "9.0"}` or typed tuple identifiers `{("int", 9), ("float", 9.0)}`.
+
+---
+
+### Q11: What is the fundamental difference between `while` and `for` loops, and how does the `else` clause operate?
+**Answer:**
+- **Condition vs Sequence**: A `while` loop is condition-controlled (repeats until its condition is `False`), making it ideal when the iteration count is undetermined. A `for` loop is iterator-controlled (traverses sequences/ranges of known bounds).
+- **Loop `else` Clause**: The `else` clause attached to a `while` or `for` loop executes only when the loop completes all iterations naturally without encountering a `break` statement.
+
+---
+
+### Q12: How do `break`, `continue`, and `pass` differ in Python loop control flow?
+**Answer:**
+- `break`: Immediately terminates loop execution and jumps to the first statement following the loop.
+- `continue`: Skips the remainder of the current iteration and jumps directly to the loop condition evaluation / next item.
+- `pass`: A null operation used as a syntactical placeholder where a statement is required but no action is to be performed.

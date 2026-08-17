@@ -7,12 +7,13 @@ This repository contains a structured progression through Python fundamentals, c
 - **`py1.ipynb`**: Primitive types (`int`, `float`, `str`, `bool`, `NoneType`), dynamic type casting, input handling, and arithmetic/logical operators.
 - **`py2.ipynb`**: String slicing, string utility methods (`.capitalize()`, `.replace()`, `.find()`, `.count()`), and conditional branching logic (`if`, `elif`, `else`).
 - **`py3.ipynb`**: Lists, tuples, mutability, palindrome checks, and interval merging algorithm (`solution`).
-- **`py4.ipynb`**: Dictionaries, nested dictionary access, and key/value manipulation methods.
+- **`py4.ipynb`**: Dictionaries, nested dictionary access, safe retrieval with `.get()`, and sets (uniqueness, union, intersection).
+- **`py5.ipynb`**: While loops, for loops, sequence traversal, loop control statements (`break`, `continue`), and linear search.
 
 ## Running the Notebooks
 
 ### 1. Interactive Execution
-Open any notebook (`py1.ipynb` through `py4.ipynb`) using VS Code, JupyterLab, or Antigravity with a Python 3.8+ kernel.
+Open any notebook (`py1.ipynb` through `py5.ipynb`) using VS Code, JupyterLab, or Antigravity with a Python 3.8+ kernel.
 
 ### 2. Executing Interval Merging Algorithm
 The interval merging function is located in `py3.ipynb`:

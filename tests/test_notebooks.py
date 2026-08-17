@@ -3,7 +3,7 @@ import json
 import os
 import pytest
 
-NOTEBOOK_FILES = ["py1.ipynb", "py2.ipynb", "py3.ipynb", "py4.ipynb"]
+NOTEBOOK_FILES = ["py1.ipynb", "py2.ipynb", "py3.ipynb", "py4.ipynb", "py5.ipynb"]
 
 
 @pytest.mark.parametrize("nb_file", NOTEBOOK_FILES)
@@ -41,8 +41,15 @@ def test_notebook_topics_present():
         assert "solution" in py3_text
         assert "append" in py3_text
 
-    # py4: check for dictionary topics
+    # py4: check for dictionary and set topics
     with open(os.path.join(root_dir, "py4.ipynb"), "r", encoding="utf-8") as f:
         py4_text = f.read()
         assert "keys()" in py4_text
         assert "values()" in py4_text
+        assert "set(" in py4_text or "union(" in py4_text
+
+    # py5: check for loop topics
+    with open(os.path.join(root_dir, "py5.ipynb"), "r", encoding="utf-8") as f:
+        py5_text = f.read()
+        assert "while" in py5_text
+        assert "break" in py5_text or "range(" in py5_text
