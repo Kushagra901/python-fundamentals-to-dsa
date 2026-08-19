@@ -4,7 +4,7 @@
 [![Python: 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![Tests: pytest](https://img.shields.io/badge/Tests-pytest-green.svg)](https://docs.pytest.org/)
 
-A comprehensive, structured collection of Python programming fundamentals, built-in data structures (strings, lists, tuples, dictionaries, sets), iteration controls, and algorithmic problem-solving implementations across 5 curated modules.
+A comprehensive, structured collection of Python programming fundamentals, built-in data structures (strings, lists, tuples, dictionaries, sets), iteration controls, and modular functions across 6 curated modules.
 
 ---
 
@@ -28,6 +28,7 @@ This repository provides clear reference implementations covering essential Pyth
 3. **Module 3 (`py3.ipynb`)**: Sequence manipulation (lists vs. tuples, mutability), palindrome detection, and interval merging algorithm (`solution`).
 4. **Module 4 (`py4.ipynb`)**: Hash maps/dictionaries, nested mappings, safe retrieval with `.get()`, and sets (uniqueness, union, intersection).
 5. **Module 5 (`py5.ipynb`)**: Loops and iteration (`while`, `for`, `range()`, `break`, `continue`, sequence traversal, linear search).
+6. **Module 6 (`py6.ipynb`)**: Functions, parameter definitions, and argument handling (`def`, `calSum`).
 
 ---
 
@@ -40,12 +41,13 @@ This repository provides clear reference implementations covering essential Pyth
 ├── py3.ipynb          # Lists, Tuples, Palindromes, Interval Merging Algorithm
 ├── py4.ipynb          # Dictionaries, Nested Dictionaries, Sets & Set Operations
 ├── py5.ipynb          # While Loops, For Loops, Iteration Control, Linear Search
+├── py6.ipynb          # Functions, Parameters, Arguments, calSum Implementation
 ├── docs/
 │   └── usage.md       # Detailed usage guide and execution flow
 ├── tests/
 │   ├── test_notebooks.py # Structural and JSON validity tests
 │   └── test_solution.py  # Unit tests for interval merging algorithm
-├── INTERVIEW.md       # 12 curated technical interview Q&As
+├── INTERVIEW.md       # 13 curated technical interview Q&As
 ├── pyproject.toml     # Packaging metadata and tool configurations
 ├── requirements.txt   # Runtime & test dependencies
 └── LICENSE            # MIT License
@@ -58,6 +60,7 @@ This repository provides clear reference implementations covering essential Pyth
 | Component | Location | Description |
 | :--- | :--- | :--- |
 | `solution(windows: list[list[int]]) -> list[list[int]]` | `py3.ipynb` | Merges overlapping interval windows after sorting by start coordinate in $O(N \log N)$ time. |
+| `calSum(a: int | float, b: int | float) -> None` | `py6.ipynb` | Computes and prints the sum of two parameters $a$ and $b$. |
 | **String Utilities** | `py2.ipynb` | Methods: `.endswith()`, `.capitalize()`, `.replace()`, `.find()`, `.count()`. |
 | **Dictionary Utilities** | `py4.ipynb` | Methods: `.keys()`, `.values()`, `.items()`, `.get()`, `.update()`. |
 | **Set Utilities** | `py4.ipynb` | Methods: `.add()`, `.remove()`, `.clear()`, `.pop()`, `.union()`, `.intersection()`. |
@@ -107,7 +110,7 @@ pytest -v
 
 ## Interview Reference
 
-See [INTERVIEW.md](INTERVIEW.md) for 12 in-depth technical interview questions covering topics from this repository (mutability, slicing internals, dictionary hashing, set deduplication, loop control flow, short-circuit evaluation, interval merging complexity).
+See [INTERVIEW.md](INTERVIEW.md) for 13 in-depth technical interview questions covering topics from this repository (mutability, slicing internals, dictionary hashing, set deduplication, loop control flow, short-circuit evaluation, functions, interval merging complexity).
 
 ---
 

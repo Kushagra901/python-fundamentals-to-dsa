@@ -1,6 +1,6 @@
 # Technical Interview Questions & Answers
 
-This document contains 12 technical questions and detailed answers derived exclusively from the concepts and implementations present in this repository.
+This document contains 13 technical questions and detailed answers derived exclusively from the concepts and implementations present in this repository.
 
 ---
 
@@ -95,3 +95,12 @@ This document contains 12 technical questions and detailed answers derived exclu
 - `break`: Immediately terminates loop execution and jumps to the first statement following the loop.
 - `continue`: Skips the remainder of the current iteration and jumps directly to the loop condition evaluation / next item.
 - `pass`: A null operation used as a syntactical placeholder where a statement is required but no action is to be performed.
+
+---
+
+### Q13: What is the semantic difference between parameters and arguments in Python functions?
+**Answer:**
+- **Parameters**: The variable identifiers defined in a function header (e.g. `a` and `b` in `def calSum(a, b):`). They serve as placeholders that receive values.
+- **Arguments**: The actual concrete values, literals, or expressions passed to the function upon invocation (e.g. `5` and `10` in `calSum(5, 10)`).
+- Functions provide modularity and reusability by allowing the same logic block to execute against different input arguments.
+

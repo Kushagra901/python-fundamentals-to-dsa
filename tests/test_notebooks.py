@@ -3,7 +3,7 @@ import json
 import os
 import pytest
 
-NOTEBOOK_FILES = ["py1.ipynb", "py2.ipynb", "py3.ipynb", "py4.ipynb", "py5.ipynb"]
+NOTEBOOK_FILES = ["py1.ipynb", "py2.ipynb", "py3.ipynb", "py4.ipynb", "py5.ipynb", "py6.ipynb"]
 
 
 @pytest.mark.parametrize("nb_file", NOTEBOOK_FILES)
@@ -53,3 +53,10 @@ def test_notebook_topics_present():
         py5_text = f.read()
         assert "while" in py5_text
         assert "break" in py5_text or "range(" in py5_text
+
+    # py6: check for function topics
+    with open(os.path.join(root_dir, "py6.ipynb"), "r", encoding="utf-8") as f:
+        py6_text = f.read()
+        assert "def " in py6_text
+        assert "calSum" in py6_text
+
