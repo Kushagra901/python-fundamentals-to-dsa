@@ -1,6 +1,6 @@
 # Technical Interview Questions & Answers
 
-This document contains 13 technical questions and detailed answers derived exclusively from the concepts and implementations present in this repository.
+This document contains 18 technical questions and detailed answers derived exclusively from the concepts and implementations present in this repository.
 
 ---
 
@@ -100,7 +100,54 @@ This document contains 13 technical questions and detailed answers derived exclu
 
 ### Q13: What is the semantic difference between parameters and arguments in Python functions?
 **Answer:**
-- **Parameters**: The variable identifiers defined in a function header (e.g. `a` and `b` in `def calSum(a, b):`). They serve as placeholders that receive values.
-- **Arguments**: The actual concrete values, literals, or expressions passed to the function upon invocation (e.g. `5` and `10` in `calSum(5, 10)`).
+- **Parameters**: The variable identifiers defined in a function signature (e.g. `a` and `b` in `def cal_sum(a, b):`). They serve as placeholders that receive values.
+- **Arguments**: The actual concrete values, literals, or expressions passed to the function upon invocation (e.g. `1` and `2` in `cal_sum(1, 2)`).
 - Functions provide modularity and reusability by allowing the same logic block to execute against different input arguments.
+
+---
+
+### Q14: How does Python evaluate default parameter values, and why are mutable default arguments problematic?
+**Answer:**
+- Default parameters provide fallback values if arguments are omitted upon invocation (e.g. `def converter(usd_val, rate=83):`).
+- Non-default parameters must always appear before default parameters; otherwise, Python raises a `SyntaxError`.
+- Default parameter values are evaluated **once when the function definition is executed**, not each time the function is called.
+- If a mutable object (like a `list` or `dict`) is used as a default parameter (`def append_item(x, lst=[]):`), that single list instance is shared across all function invocations, creating unintended side effects. The idiomatic pattern is using `lst=None` and initializing inside the function (`if lst is None: lst = []`).
+
+---
+
+### Q15: How does recursion utilize the call stack, and what causes a `RecursionError`?
+**Answer:**
+- Each recursive call creates a new **stack frame** containing the function's local variables, parameters, and return address on the process call stack.
+- A **base case** is strictly required to halt further recursive invocations and begin unwinding the stack.
+- Without a valid base case, calls accumulate until reaching Python's recursion limit (accessible via `sys.getrecursionlimit()`, default 1000), raising `RecursionError: maximum recursion depth exceeded`.
+- **Complexity**: In recursive factorial `fact(n)`, $N$ nested stack frames consume $O(N)$ auxiliary stack space.
+
+---
+
+### Q16: Why is the `with` statement (context manager) preferred for File I/O over manual `open()` and `close()`?
+**Answer:**
+- The `with` statement utilizes Python's context management protocol (`__enter__` and `__exit__`).
+- It guarantees deterministic resource cleanup: the file descriptor is flushed and closed immediately when the code exits the `with` block, even if an exception is thrown or an early `return`/`break` occurs.
+- Manual `f.close()` risks remaining unexecuted if an exception occurs prior to reaching the `close()` call, leading to memory leaks and locked file handles.
+
+---
+
+### Q17: Compare file access modes `'r+'`, `'w+'`, and `'a+'` in Python.
+**Answer:**
+| Mode | Purpose | File Pointer Start Position | Truncates Existing Content? |
+| :--- | :--- | :--- | :--- |
+| `'r+'` | Read + Write | Beginning (byte 0) | **No** (overwrites byte-by-byte from pointer) |
+| `'w+'` | Write + Read | Beginning (byte 0) | **Yes** (truncates file to 0 bytes on open) |
+| `'a+'` | Append + Read | End of file | **No** (all writes append to end) |
+
+- In `'r+'`, attempting to open a non-existent file raises `FileNotFoundError`, whereas `'w+'` and `'a+'` create a new file if it does not exist.
+
+---
+
+### Q18: What is the most memory-efficient technique to process large (multi-GB) text files in Python?
+**Answer:**
+- Avoid `f.read()` and `f.readlines()`, which load the entire file into RAM simultaneously, resulting in $O(\\text{file\\_size})$ memory overhead.
+- Instead, iterate directly over the file object (`with open("huge.txt", "r") as f: for line in f:`).
+- Python's file iterator streams data line-by-line using an internal buffer generator, consuming only $O(\\text{max\\_line\\_length})$ memory regardless of how large the file is.
+
 

@@ -9,12 +9,13 @@ This repository contains a structured progression through Python fundamentals, c
 - **`py3.ipynb`**: Lists, tuples, mutability, palindrome checks, and interval merging algorithm (`solution`).
 - **`py4.ipynb`**: Dictionaries, nested dictionary access, safe retrieval with `.get()`, and sets (uniqueness, union, intersection).
 - **`py5.ipynb`**: While loops, for loops, sequence traversal, loop control statements (`break`, `continue`), and linear search.
-- **`py6.ipynb`**: Functions, function definitions (`def`), parameters, arguments, and sum computation (`calSum`).
+- **`py6.ipynb`**: Functions, default parameters, positional ordering, and recursion fundamentals (`sum_natural`, `fact`).
+- **`py7.ipynb`**: File I/O (`open()`, `'r'`, `'w'`, `'a'`, `'r+'`, `'w+'`), context managers (`with`), file manipulation with `os.remove()`, and text stream parsing.
 
 ## Running the Notebooks
 
 ### 1. Interactive Execution
-Open any notebook (`py1.ipynb` through `py6.ipynb`) using VS Code, JupyterLab, or Antigravity with a Python 3.8+ kernel.
+Open any notebook (`py1.ipynb` through `py7.ipynb`) using VS Code, JupyterLab, or Antigravity with a Python 3.8+ kernel.
 
 ### 2. Executing Interval Merging Algorithm
 The interval merging function is located in `py3.ipynb`:
