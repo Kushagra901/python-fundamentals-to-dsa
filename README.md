@@ -4,7 +4,7 @@
 [![Python: 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![Tests: pytest](https://img.shields.io/badge/Tests-pytest-green.svg)](https://docs.pytest.org/)
 
-A comprehensive, structured collection of Python programming fundamentals, built-in data structures (strings, lists, tuples, dictionaries, sets), iteration controls, modular functions & recursion, and File I/O across 7 curated modules.
+A comprehensive, structured collection of Python programming fundamentals, built-in data structures (strings, lists, tuples, dictionaries, sets), iteration controls, modular functions & recursion, File I/O, and Object-Oriented Programming (OOP) across 8 curated modules.
 
 ---
 
@@ -30,6 +30,7 @@ This repository provides clear reference implementations covering essential Pyth
 5. **Module 5 (`py5.ipynb`)**: Loops and iteration (`while`, `for`, `range()`, `break`, `continue`, sequence traversal, linear search).
 6. **Module 6 (`py6.ipynb`)**: Functions, parameter definitions, argument handling, default arguments, and recursion (`cal_sum`, `cal_fact`, `converter`, `sum_natural`, `fact`).
 7. **Module 7 (`py7.ipynb`)**: File Input/Output (I/O) modes (`'r'`, `'w'`, `'a'`, `'r+'`, `'w+'`), context managers (`with`), file manipulation (`os.remove()`), word search, and text stream parsing.
+8. **Module 8 (`py8.ipynb`)**: Object-Oriented Programming (OOP) fundamentals: classes, objects, `__init__` constructor, `self` parameter, and class vs. instance attributes.
 
 ---
 
@@ -44,6 +45,7 @@ This repository provides clear reference implementations covering essential Pyth
 ├── py5.ipynb          # While Loops, For Loops, Iteration Control, Linear Search
 ├── py6.ipynb          # Functions, Parameters, Arguments, Recursion Fundamentals
 ├── py7.ipynb          # File I/O, Reading/Writing, Context Managers, OS Operations
+├── py8.ipynb          # OOP Fundamentals, Classes, Objects, Constructors, Attributes
 ├── practice.txt       # Sample file dataset for file parsing exercises
 ├── docs/
 │   └── usage.md       # Detailed usage guide and execution flow

@@ -3,7 +3,7 @@ import json
 import os
 import pytest
 
-NOTEBOOK_FILES = ["py1.ipynb", "py2.ipynb", "py3.ipynb", "py4.ipynb", "py5.ipynb", "py6.ipynb", "py7.ipynb"]
+NOTEBOOK_FILES = ["py1.ipynb", "py2.ipynb", "py3.ipynb", "py4.ipynb", "py5.ipynb", "py6.ipynb", "py7.ipynb", "py8.ipynb"]
 
 
 @pytest.mark.parametrize("nb_file", NOTEBOOK_FILES)
@@ -66,4 +66,11 @@ def test_notebook_topics_present():
         assert "open(" in py7_text
         assert "read(" in py7_text or "readline()" in py7_text
         assert "with " in py7_text
+
+    # py8: check for OOP, class, and constructor topics
+    with open(os.path.join(root_dir, "py8.ipynb"), "r", encoding="utf-8") as f:
+        py8_text = f.read()
+        assert "class " in py8_text
+        assert "__init__" in py8_text
+        assert "self" in py8_text
 
