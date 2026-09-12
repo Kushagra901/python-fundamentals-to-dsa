@@ -1,6 +1,6 @@
 # Technical Interview Questions & Answers
 
-This document contains 18 technical questions and detailed answers derived exclusively from the concepts and implementations present in this repository.
+This document contains 24 technical questions and detailed answers derived exclusively from the concepts and implementations present in this repository.
 
 ---
 
@@ -146,8 +146,58 @@ This document contains 18 technical questions and detailed answers derived exclu
 
 ### Q18: What is the most memory-efficient technique to process large (multi-GB) text files in Python?
 **Answer:**
-- Avoid `f.read()` and `f.readlines()`, which load the entire file into RAM simultaneously, resulting in $O(\\text{file\\_size})$ memory overhead.
+- Avoid `f.read()` and `f.readlines()`, which load the entire file into RAM simultaneously, resulting in $O(\text{file\_size})$ memory overhead.
 - Instead, iterate directly over the file object (`with open("huge.txt", "r") as f: for line in f:`).
-- Python's file iterator streams data line-by-line using an internal buffer generator, consuming only $O(\\text{max\\_line\\_length})$ memory regardless of how large the file is.
+- Python's file iterator streams data line-by-line using an internal buffer generator, consuming only $O(\text{max\_line\_length})$ memory regardless of how large the file is.
+
+---
+
+### Q19: What is the purpose of the `self` parameter in Python methods, and how is it passed internally?
+**Answer:**
+- `self` explicitly represents the instance upon which a method is called.
+- When an invocation like `obj.method(arg)` occurs, Python internally translates it to `ClassName.method(obj, arg)`.
+- Without `self`, methods would have no reference to the object's instance dictionary (`__dict__`), making it impossible to store, read, or modify instance-specific state.
+
+---
+
+### Q20: Explain attribute lookup precedence when an instance attribute and class attribute share the same name.
+**Answer:**
+- When reading `obj.attr`, Python inspects the instance namespace `obj.__dict__` first.
+- If found, it returns the instance attribute immediately, shadowing any class attribute of the same name.
+- If absent from the instance, Python falls back to inspecting the class namespace (`obj.__class__.__dict__`) and its base classes according to the MRO.
+- As demonstrated in `py8.ipynb`, setting `self.name = "karan"` shadows the default class attribute `name = "anonymous"`.
+
+---
+
+### Q21: What is `@staticmethod` in Python, and how does it differ from regular instance methods?
+**Answer:**
+- Regular instance methods require `self` as their first parameter to access and mutate instance attributes.
+- A `@staticmethod` decorator defines a method that belongs to the class's namespace but does not receive an automatic reference to either the instance (`self`) or the class (`cls`).
+- It acts like a standard function placed inside the class namespace for logical grouping and code organization.
+
+---
+
+### Q22: How does Python implement data encapsulation and "private" attributes via name mangling?
+**Answer:**
+- Python does not have strict access specifiers (`private`, `protected`, `public`) at runtime.
+- By convention, identifiers prefixed with a double underscore (e.g., `__acc_pass`) trigger **Name Mangling**.
+- Python automatically transforms `__acc_pass` into `_ClassName__acc_pass` inside the object's dictionary.
+- While direct access `obj.__acc_pass` raises an `AttributeError`, external code can still access `obj._ClassName__acc_pass`. Name mangling serves to protect against accidental overwrites in subclasses rather than enforce absolute data privacy.
+
+---
+
+### Q23: What actually happens during execution of the `del` keyword on objects and attributes?
+**Answer:**
+- `del obj.attr` removes the attribute name from `obj.__dict__`. Subsequent access raises an `AttributeError`.
+- `del obj` unbinds the name `obj` from the current namespace and decrements the target object's reference counter by 1.
+- Memory deallocation occurs only when the object's reference count drops to 0, at which point the garbage collector calls `__del__()` (if implemented) and reclaims the memory block.
+
+---
+
+### Q24: How does Method Resolution Order (MRO) resolve method and attribute lookups in Multiple Inheritance?
+**Answer:**
+- In multiple inheritance (`class C(A, B):`), Python uses the **C3 Linearization algorithm** to determine the exact search sequence for methods and attributes.
+- The lookup order follows: the derived class itself, followed by parent classes in left-to-right declaration order, and ultimately the root `object` class (`C -> A -> B -> object`).
+- The active MRO can be inspected dynamically via `ClassName.__mro__` or `ClassName.mro()`.
 
 

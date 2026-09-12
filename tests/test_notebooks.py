@@ -3,7 +3,7 @@ import json
 import os
 import pytest
 
-NOTEBOOK_FILES = ["py1.ipynb", "py2.ipynb", "py3.ipynb", "py4.ipynb", "py5.ipynb", "py6.ipynb", "py7.ipynb", "py8.ipynb"]
+NOTEBOOK_FILES = ["py1.ipynb", "py2.ipynb", "py3.ipynb", "py4.ipynb", "py5.ipynb", "py6.ipynb", "py7.ipynb", "py8.ipynb", "py9.ipynb"]
 
 
 @pytest.mark.parametrize("nb_file", NOTEBOOK_FILES)
@@ -73,4 +73,11 @@ def test_notebook_topics_present():
         assert "class " in py8_text
         assert "__init__" in py8_text
         assert "self" in py8_text
+
+    # py9: check for advanced OOP, del, private attributes, and inheritance
+    with open(os.path.join(root_dir, "py9.ipynb"), "r", encoding="utf-8") as f:
+        py9_text = f.read()
+        assert "del " in py9_text
+        assert "class " in py9_text
+        assert "inheritance" in py9_text.lower()
 

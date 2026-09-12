@@ -11,12 +11,13 @@ This repository contains a structured progression through Python fundamentals, c
 - **`py5.ipynb`**: While loops, for loops, sequence traversal, loop control statements (`break`, `continue`), and linear search.
 - **`py6.ipynb`**: Functions, default parameters, positional ordering, and recursion fundamentals (`sum_natural`, `fact`).
 - **`py7.ipynb`**: File I/O (`open()`, `'r'`, `'w'`, `'a'`, `'r+'`, `'w+'`), context managers (`with`), file manipulation with `os.remove()`, and text stream parsing.
-- **`py8.ipynb`**: Object-Oriented Programming (OOP) fundamentals: classes, objects, `__init__` constructor, `self` parameter, and class vs. instance attributes.
+- **`py8.ipynb`**: Object-Oriented Programming (OOP) fundamentals: classes, objects, `__init__` constructor, `self` parameter, class vs. instance attributes, methods, static methods, and abstraction.
+- **`py9.ipynb`**: Advanced OOP: `del` keyword, name mangling for private attributes, and single/multi-level/multiple inheritance with MRO.
 
 ## Running the Notebooks
 
 ### 1. Interactive Execution
-Open any notebook (`py1.ipynb` through `py8.ipynb`) using VS Code, JupyterLab, or Antigravity with a Python 3.8+ kernel.
+Open any notebook (`py1.ipynb` through `py9.ipynb`) using VS Code, JupyterLab, or Antigravity with a Python 3.8+ kernel.
 
 ### 2. Executing Interval Merging Algorithm
 The interval merging function is located in `py3.ipynb`:
